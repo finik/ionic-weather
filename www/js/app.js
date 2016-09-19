@@ -79,18 +79,14 @@ angular.module('ionic.weather', ['ionic', 'ionic.weather.services', 'ionic.weath
   };
 
   $scope.refreshData = function() {
-    Geo.getLocation().then(function(position) {
-      var lat = position.coords.latitude;
-      var lng = position.coords.longitude;
+      var lat = 37.750559;
+      var lng = -122.461298;
 
       Geo.reverseGeocode(lat, lng).then(function(locString) {
         $scope.currentLocationString = locString;
         _this.getBackgroundImage(lat, lng, locString);
       });
       _this.getCurrent(lat, lng);
-    }, function(error) {
-      alert('Unable to get current location: ' + error);
-    });
   };
 
   $scope.refreshData();
