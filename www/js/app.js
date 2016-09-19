@@ -20,6 +20,8 @@ angular.module('ionic.weather', ['ionic', 'ionic.weather.services', 'ionic.weath
     if(window.StatusBar) {
       StatusBar.hide();
     }
+
+    Bugsee.launch("mysecretapptoken", {"endpoint": "https://apidev.bugsee.com"});
   });
 
   $scope.activeBgImageIndex = 0;
