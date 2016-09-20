@@ -87,7 +87,7 @@ var forecastioWeather = ['$q', '$resource', '$http', 'FORECASTIO_KEY', function(
 
   return {
     getAtLocation: function(lat, lng) {
-      return $http.jsonp(url + lat + ',' + lng + '?callback=JSON_CALLBACK');
+      return $http.get(url + lat + ',' + lng);
     },
     getForecast: function(locationString) {
     },
@@ -209,13 +209,9 @@ angular.module('ionic.weather.services', ['ngResource'])
     method: 'flickr.groups.pools.getPhotos',
     group_id: '1463451@N25',
     safe_search: 1,
-    jsoncallback: 'JSON_CALLBACK',
+    nojsoncallback:1,
     api_key: FLICKR_API_KEY,
     format: 'json'
-  }, {
-    get: {
-      method: 'JSONP'
-    }
   });
 
   return {
